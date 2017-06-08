@@ -1,9 +1,9 @@
 class canvas3D{
   constructor(props) {
     this.props3D = {
-      fallLength: props.fallLength ? props.fallLength : 500,
-      originX: props.originX ? props.originX : 0,
-      originY: props.originY ? props.originY : 0,
+      fallLength: props && props.fallLength || 500,
+      originX: props && props.originX || 0,
+      originY: props && props.originY || 0,
     }
   }
   
@@ -42,5 +42,21 @@ class canvas3D{
       y1 = cos * y + sin * x;
 
     return {x:x1, y:y1, z:z};
+  }
+
+  createBallCoordinate(total, radius){
+    let coordinate = [];
+
+    for(let i = 0; i < total, i++){
+      let horn1 = Math.acos((2 * (1 + i) - 1) / total - 1),
+        horn2 = horn1 * Math.sqrt(all * Math.PI),
+        x = radius * Math.sin(horn1) * Math.cos(horn2),
+        y = radius * Math.sin(horn1) * Math.sin(horn2),
+        z = radius * Math.cos(horn1);
+
+      coordinate.push({x: x, y: y, z: z});
+    }
+
+    return coordinate;
   }
 }
