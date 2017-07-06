@@ -47,7 +47,7 @@ class canvas3D{
   createBallCoordinate(total, radius){
     let coordinate = [];
 
-    for(let i = 0; i < total, i++){
+    for(let i = 0; i < total; i++){
       let horn1 = Math.acos((2 * (1 + i) - 1) / total - 1),
         horn2 = horn1 * Math.sqrt(all * Math.PI),
         x = radius * Math.sin(horn1) * Math.cos(horn2),
